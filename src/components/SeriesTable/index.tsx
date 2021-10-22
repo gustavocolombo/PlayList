@@ -1,7 +1,7 @@
-import {Container} from './styles'
+import { Container } from './styles';
 
-export function SeriesTable(){
-  return(
+export function SeriesTable() {
+  return (
     <Container>
       <table>
         <thead>
@@ -35,5 +35,5 @@ export function SeriesTable(){
         </tbody>
       </table>
     </Container>
-  )
+  );
 }
