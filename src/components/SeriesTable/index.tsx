@@ -1,6 +1,13 @@
+import { useEffect } from 'react';
+import { api } from '../../services/api';
 import { Container } from './styles';
 
 export function SeriesTable() {
+
+  useEffect(()=>{
+    api.get('series').then(response => console.log(response))
+  }, [])
+
   return (
     <Container>
       <table>

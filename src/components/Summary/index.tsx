@@ -37,7 +37,7 @@ export function Summary(){
           <p>Total de séries</p>
           <img src={play} alt="play series" />
         </header> 
-        <strong>3 séries</strong>
+        <strong>9 séries</strong>
       </div>
     </Container>
   )

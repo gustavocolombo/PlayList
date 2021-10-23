@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiArrowLeft } from 'react-icons/fi';
 import { Container, ContentWrapper } from './styles'
 
@@ -10,7 +10,7 @@ export function Header({handleOpenModal}: IHeaderProps){
 
   const [hours, setHours] = useState('');
 
-  function hourUserInPlataform(){
+  useEffect(()=> {
     const date = new Date().getHours();
 
     if(date < 12){
@@ -20,7 +20,7 @@ export function Header({handleOpenModal}: IHeaderProps){
     }else{
       setHours('Boa noite!')
     }
-  }
+  }, [])
  
   return(
     <Container>
@@ -31,7 +31,7 @@ export function Header({handleOpenModal}: IHeaderProps){
               <FiArrowLeft color="#FFF"/>
             </a>
           </button>
-          <h3>Boa noite usuário</h3>
+          <h3>{hours}</h3>
         </div>
         <button onClick={handleOpenModal}>
           Nova série
