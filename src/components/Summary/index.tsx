@@ -1,11 +1,17 @@
+import { useContext } from 'react'
+
 import amazon from '../../assets/amazon.svg'
 import disney from '../../assets/disney.svg'
 import netflix from '../../assets/netflix.svg'
 import play from '../../assets/play.png'
+import { SeriesContext } from '../../SeriesContext'
 
 import {Container} from './styles'
 
 export function Summary(){
+
+  const {series} = useContext(SeriesContext);
+
   return(
     <Container>
       <div>

@@ -14,17 +14,17 @@ createServer({
       series:[
         {
           id: 1,
-          name: 'the office',
-          nacionality: 'americana',
-          streaming: 'amazon prime video',
+          name: 'The office',
+          nacionality: 'Americana',
+          streaming: 'Amazon Prime Video',
           season: 9,
           season_left: 2
         },
         {
           id: 2,
-          name: 'the boys',
-          nacionality: 'americana',
-          streaming: 'amazon prime video',
+          name: 'The boys',
+          nacionality: 'Americana',
+          streaming: 'Amazon Prime Video',
           season: 2,
           season_left: 1
         }

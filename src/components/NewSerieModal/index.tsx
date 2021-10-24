@@ -1,7 +1,7 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import Modal from 'react-modal'
-import { api } from '../../services/api';
 import { Container } from './styles'
+import { SeriesContext } from '../../SeriesContext';
 
 interface NewSerieModalProps{
   isOpen: boolean;
@@ -16,10 +16,12 @@ export function NewSerieModal({isOpen, onRequestClose}: NewSerieModalProps){
   const [season, setSeason] = useState(0);
   const [season_left, setSeasonLeft] = useState(0);
 
+  const { createSerie } = useContext(SeriesContext)
+
   function handleSubmitNewSerie(event: FormEvent){
     event.preventDefault();
 
-    api.post('series').then((response: any) => response.data.transactions)
+    createSerie({name, nacionality, streaming, season, season_left});
   }
 
   return(

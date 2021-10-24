@@ -1,12 +1,10 @@
-import { useEffect } from 'react';
-import { api } from '../../services/api';
+import { useContext } from 'react';
+import { SeriesContext } from '../../SeriesContext';
 import { Container } from './styles';
 
 export function SeriesTable() {
 
-  useEffect(()=>{
-    api.get('series').then(response => console.log(response))
-  }, [])
+  const {series} = useContext(SeriesContext);
 
   return (
     <Container>
@@ -22,23 +20,15 @@ export function SeriesTable() {
         </thead>
 
         <tbody>
-          <tr>
-            <td>The Office</td>
-            <td>Amazon Prime Video</td>
-            <td>Americana</td>
-            <td>9</td>
-            <td>2</td>
+         {series.map(serie => (
+          <tr key={serie.name}>
+            <td>{serie.name}</td>
+            <td>{serie.streaming}</td>
+            <td>{serie.nacionality}</td>
+            <td>{serie.season}</td>
+            <td>{serie.season_left}</td>
           </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <td>The Boys</td>
-            <td>Amazon Prime Video</td>
-            <td>Americana</td>
-            <td>2</td>
-            <td>1</td>
-          </tr>
+         ))}
         </tbody>
       </table>
     </Container>
