@@ -30,8 +30,11 @@ export function SeriesProvider({children}: SeriesContextProvider){
     api.get('series').then((response: any) => setSeries(response.data.series));
   }, [])
 
-  async function createSerie(serie: ISeries){
-    const response = await api.post('/series', serie);
+  async function createSerie(serieInput: ISeries){
+    const response = await api.post('/series', serieInput);
+    const { series: newSeries } = response.data as any;
+
+    setSeries([...series, newSeries ]);
   }
 
   return (

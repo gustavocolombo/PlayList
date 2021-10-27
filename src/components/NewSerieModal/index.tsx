@@ -1,7 +1,8 @@
 import { FormEvent, useContext, useState } from 'react'
-import Modal from 'react-modal'
 import { Container } from './styles'
 import { SeriesContext } from '../../SeriesContext';
+import Modal from 'react-modal'
+
 
 interface NewSerieModalProps{
   isOpen: boolean;
@@ -18,10 +19,17 @@ export function NewSerieModal({isOpen, onRequestClose}: NewSerieModalProps){
 
   const { createSerie } = useContext(SeriesContext)
 
-  function handleSubmitNewSerie(event: FormEvent){
+  async function handleSubmitNewSerie(event: FormEvent){
     event.preventDefault();
 
-    createSerie({name, nacionality, streaming, season, season_left});
+    await createSerie({name, nacionality, streaming, season, season_left});
+
+    setName('');
+    setNacionality('');
+    setStreaming('');
+    setSeason(0);
+    setSeasonLeft(0);
+    onRequestClose();
   }
 
   return(
